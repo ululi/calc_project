@@ -19,12 +19,12 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient( red,green);
+    background: linear-gradient(#2e3e8c, #000311);
 }
 .calculator-grid{
     display: grid;
-    grid-template-columns: repeat(4,80px);
-    grid-template-rows: minmax(120px) repeat(5,80px);
+    grid-template-columns: repeat(4,100px);
+    grid-template-rows: minmax(120px) repeat(5,100px);
     border: 1px solid #fff;
     border-radius: 6px;
 }
