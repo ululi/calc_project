@@ -1,18 +1,12 @@
 class Calculator{
-    constructor(){
-
+    constructor(operandEpressionText) {
+        this.operandEpressionText = operandEpressionText
     }
     clear(){
-
+        this.operandEpressionText.innerHTML = ''
     }
-    delete(){
-
-    }
-    chooseOperator(){
-
-    }
-    compute(){
-
+    appendNumber(number){
+        this.operandEpressionText.innerHTML = number.toString()
     }
 }
 
@@ -23,28 +17,24 @@ const operatorButtons = document.querySelectorAll('[data-operator]');
 const deleteButton = document.getElementById('delete');
 const clearButton = document.getElementById('clear');
 const equalButton = document.querySelector('#equals');
-
-// for each button add an event listener
-
-numberButtons.forEach(button=>{
-   button.addEventListener('click',e=>{
-       console.log(e.target.textContent)
-   })
-});
-operatorButtons.forEach((operator)=>{
-    operator.addEventListener('click',e=>{
-        console.log(e.target.textContent)
-    })
-});
-deleteButton.addEventListener('click',e=>{
-    console.log(e.target.textContent)
-});
-clearButton.addEventListener('click',e=>{
-    console.log(e.target.textContent)
-});
-equalButton.addEventListener('click',e=>{
-    console.log(e.target.textContent)
-});
+const operandEpression = document.querySelector('.display-result')
 
 // create a new class using the constructor function from up above
-const calculator = new Calculator()
+const calculator = new Calculator(operandEpression)
+
+// for each button add an event listener
+numberButtons.forEach(function(button){
+    button.addEventListener('click',function(e){
+        calculator.appendNumber(e.target.textContent)
+    })
+})
+operatorButtons.forEach(function (button) {
+    button.addEventListener('click', function (e) {
+        calculator.appendNumber(e.target.textContent)
+    })
+})
+clearButton.addEventListener('click', function () {
+        calculator.clear()
+    })
+
+console.log(calculator)
