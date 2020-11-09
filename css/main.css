@@ -15,8 +15,8 @@ body{
     justify-content: center;
     align-content: center;
     min-height: 100vh;
-    grid-template-columns: repeat(4,80px);
-    grid-template-rows: minmax(128px,auto) repeat(5,80px);
+    grid-template-columns: repeat(5,80px);
+    grid-template-rows: minmax(128px,auto) repeat(7,80px);
 }
 .calculator-grid > button{
     cursor: pointer;
@@ -25,11 +25,14 @@ body{
     border: 1px solid #fff;
     background-color: rgb(255,255,255, 0.75);
 }
-.span-two{
-    grid-column: span 2;
-}
 .calculator-grid>button:hover{
     background-color: #e7dbdb;
+}
+.col-span-two {
+    grid-column: span 2;
+}
+.row-span-two{
+    grid-row: span 2;
 }
 .output{
     grid-column: 1/-1;
