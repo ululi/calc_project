@@ -8,6 +8,12 @@ class Calculator {
         this.operation = undefined
         this.currentOperandEpressionText.innerHTML = ''
     }
+    delete() {
+        if (this.currentOperand === this.currentOperand) {
+            var stringToDel = this.currentOperand.split('')
+        }
+        console.log(stringToDel)
+    }
     appendNumber(number) {
         if (number === '.' && this.currentOperand.includes('.')) return
         this.currentOperand = this.currentOperand.toString() + number.toString()
@@ -18,7 +24,14 @@ class Calculator {
     updateDisplay() {
         this.currentOperandEpressionText.innerHTML = this.currentOperand
     }
-    compute() {}
+    compute() {
+        let computation;
+        let current = this.currentOperand;
+        if (this.currentOperand === current) {
+            computation = eval(this.currentOperand);
+        }
+        this.currentOperand = computation;
+    }
 }
 
 // Select all the buttons from the Dom
@@ -46,12 +59,15 @@ operatorButtons.forEach(function (button) {
         calculator.updateDisplay()
     })
 })
+deleteButton.addEventListener('click', function () {
+    calculator.delete()
+    calculator.updateDisplay()
+})
 clearButton.addEventListener('click', function () {
     calculator.clear()
 })
 
 equalButton.addEventListener('click', function (e) {
-    // console.log(e.target.textContent)
+    calculator.compute()
+    calculator.updateDisplay()
 })
-
-console.log(calculator)
