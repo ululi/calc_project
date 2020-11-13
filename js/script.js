@@ -9,10 +9,11 @@ class Calculator {
         this.currentOperandEpressionText.innerHTML = ''
     }
     delete() {
-        if (this.currentOperand === this.currentOperand) {
-            var stringToDel = this.currentOperand.split('')
+        let stringToDel = this.currentOperand
+        if(this.currentOperandEpressionText.innerHTML== '') return
+        else if (this.currentOperandEpressionText.innerHTML == this.currentOperand){
+            console.log(stringToDel)
         }
-        console.log(stringToDel)
     }
     appendNumber(number) {
         if (number === '.' && this.currentOperand.includes('.')) return
@@ -41,7 +42,7 @@ const operatorButtons = document.querySelectorAll('[data-operator]');
 const deleteButton = document.getElementById('delete');
 const clearButton = document.getElementById('clear');
 const equalButton = document.querySelector('#equals');
-const currentOperandEpressionText = document.querySelector('.display-result')
+const currentOperandEpressionText = document.querySelector('#current-operand')
 
 // create a new class using the constructor function from up above
 const calculator = new Calculator(currentOperandEpressionText)
